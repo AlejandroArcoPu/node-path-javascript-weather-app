@@ -11,5 +11,68 @@
       rel="stylesheet"
     />
   </head>
-  <body></body>
+  <body>
+    <main>
+      <header>
+        <h1 class="title-page">EasyWeather.</h1>
+        <p>
+          A <span class="bold">simple</span> and
+          <span class="bold">reliable</span> weather app that gives you accurate
+          forecasts <span class="bold">instantly.</span> 🌤️🌍
+        </p>
+      </header>
+      <div class="search-part">
+        <div class="search-input-div">
+          <i class="glass-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="currentColor"
+                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+              />
+            </svg>
+          </i>
+          <form action="">
+            <input id="input" class="search-input" type="text" placeholder="" />
+          </form>
+          <div class="typing-div">
+            <span class="typing"></span>
+          </div>
+        </div>
+        <p class="searched-place">London</p>
+      </div>
+      <div class="show-place-part">
+        <section class="main-weather">
+          <h1 class="temp">20<span class="degree">ºC</span></h1>
+          <p class="conditions">
+            <img
+              class="icon"
+              src="./images/partly-cloudy-day.svg"
+              alt="Partially cloudy day icon"
+            />
+            Partially Cloudy
+          </p>
+          <div class="datetime">
+            <p>Today, 15 January</p>
+            <p>21:00</p>
+          </div>
+          <div class="separator"></div>
+          <div class="weather-details">
+            <div class="first-line-details">
+              <div class="humidity"></div>
+            </div>
+            <div class="second-line-details"></div>
+            <div class="third-line-details"></div>
+          </div>
+        </section>
+        <div class="extra-info">
+          <div class="weather-byhours"></div>
+          <div class="weather-bydays"></div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
