@@ -1,3 +1,7 @@
+:root {
+  --main-weather-bg: #e6e6e6;
+}
+
 *,
 *::after,
 *::before {
@@ -26,4 +30,172 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+header {
+  text-align: center;
+}
+.title-page {
+  font-size: 4rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.search-part {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.search-input-div {
+  position: relative;
+}
+
+.glass-icon {
+  position: absolute;
+  top: 11px;
+  left: 10px;
+  z-index: 1;
+}
+
+.glass-icon svg {
+  color: #a9a9a9;
+}
+
+.search-input {
+  box-shadow: none;
+  border: 1px solid #a9a9a9;
+  padding-top: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding-bottom: 8px;
+  padding-left: 35px;
+  border-radius: 10px;
+  transition: border-color 0.5s, box-shadow 0.5s;
+  width: 350px;
+}
+
+.search-input:hover {
+  border-color: #646464;
+}
+
+.search-input:focus {
+  box-shadow: 0px 0px 0px 3px #c5c5c5;
+  border-color: #646464;
+  outline: none;
+}
+
+.searched-place {
+  color: white;
+  background-color: black;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  width: 210px;
+}
+
+.typing-div {
+  position: absolute;
+  top: 8px;
+  left: 40px;
+  pointer-events: none;
+}
+
+.typing {
+  overflow: hidden;
+  display: inline-block;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  font-weight: bold;
+  border-right: 3px solid black;
+  animation: blinking 1s steps(1, end) infinite,
+    typing 1s steps(8, end) 1s backwards, erase 1s steps(8, end) 4s forwards;
+}
+
+.show-place-part {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.main-weather {
+  background-color: var(--main-weather-bg);
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.252);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 320px;
+  flex: 1 1 auto;
+}
+
+.icon {
+  width: 70px;
+}
+
+.conditions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -15px;
+}
+
+.temp {
+  font-size: 5rem;
+  font-weight: 500;
+}
+
+.degree {
+  font-size: 2rem;
+  font-weight: 300;
+  vertical-align: text-top;
+}
+
+.datetime {
+  display: flex;
+  justify-content: space-between;
+}
+
+.separator {
+  border: 1px solid black;
+}
+
+@keyframes blinking {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes erase {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
 }
