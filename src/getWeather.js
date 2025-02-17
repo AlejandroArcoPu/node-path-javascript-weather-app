@@ -1,31 +1,38 @@
 import DayWeather from "./DayWeather";
 import HourWeather from "./HourWeather";
 
-const gateTodayDate = () => {
+const fetchTimeZone = async (place) => {
+  // console.log(place);
+  const responseWeather = await fetch(
+    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${place}/2020-10-01?key=${process.env.VISUAL_CROSSING_API_KEY}&unitGroup=uk&timezone`
+  );
+  if (!responseWeather.ok) {
+    throw new Error("HTTP visual crossing error!");
+  }
+  const { timezone } = await responseWeather.json();
+  return timezone;
+};
+
+const getDateTimeZone = (timezone, offset = 0) => {
   let dt = new Date();
+  dt.setDate(dt.getDate() + offset);
   const today = dt.toLocaleDateString("sv-SE", {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
+    timeZone: timezone,
   });
   return today;
 };
 
-const get5DaysMoreDate = () => {
-  let dt = new Date();
-  dt.setDate(dt.getDate() + 4);
-  const fiveMoreDays = dt.toLocaleDateString("sv-SE", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  });
-  return fiveMoreDays;
-};
-
 const fetchWeather = async (place) => {
   try {
+    // const placeTimezone = await fetchTimeZone(place);
+    const placeTimezone = "Europe/London";
     const response = await fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${place}/${gateTodayDate()}/${get5DaysMoreDate()}/?key=${
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${place}/${getDateTimeZone(
+        placeTimezone
+      )}/${getDateTimeZone(placeTimezone, 4)}/?key=${
         process.env.VISUAL_CROSSING_API_KEY
       }&unitGroup=uk`
     );
@@ -60,11 +67,14 @@ export const getWeatherObject = async (place) => {
           hour.uvindex,
           hour.pressure,
           hour.precipprob,
-          hour.icon
+          hour.icon,
+          hour.conditions,
+          hour.feelslike
         );
         return hourObject;
       }),
-      day.moonphase
+      day.moonphase,
+      weather.timezone
     );
     return dayObject;
   });

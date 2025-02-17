@@ -8,7 +8,8 @@ export default class DayWeather {
     condition,
     description,
     hours = [],
-    moonphase
+    moonphase,
+    timezone
   ) {
     this.datetime = datetime;
     this.icon = icon;
@@ -19,5 +20,6 @@ export default class DayWeather {
     this.description = description;
     this.hours = hours;
     this.moonphase = moonphase;
+    this.timezone = timezone;
   }
 }

@@ -8,7 +8,9 @@ export default class HourWeather {
     uvIndex,
     pressure,
     precipProb,
-    icon
+    icon,
+    conditions,
+    feelsLike
   ) {
     this.datetime = datetime;
     this.temp = temp;
@@ -19,5 +21,7 @@ export default class HourWeather {
     this.pressure = pressure;
     this.precipProb = precipProb;
     this.icon = icon;
+    this.conditions = conditions;
+    this.feelsLike = feelsLike;
   }
 }
