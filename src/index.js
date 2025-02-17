@@ -1,4 +1,5 @@
 import { typingEffect } from "./createPhrasesInSearch";
+import { displayMainWeather } from "./displayMainWeather";
 import { getWeatherObject } from "./getWeather";
 import "./styles.css";
 
@@ -9,7 +10,9 @@ const form = document.querySelector("form");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const weather = await getWeatherObject(input.value);
-  console.log(weather);
+  displayMainWeather(weather);
 });
 
 typingEffect(typing, input);
+const initialWeather = await getWeatherObject("London");
+displayMainWeather(initialWeather);

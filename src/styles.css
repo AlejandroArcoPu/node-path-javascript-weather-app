@@ -138,7 +138,7 @@ header {
   background-color: var(--main-weather-bg);
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.252);
-  padding: 25px;
+  padding: 30px 15px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -153,6 +153,7 @@ header {
 
 .conditions {
   display: flex;
+  font-size: 1.3rem;
   align-items: center;
   gap: 10px;
   margin-top: -15px;
@@ -167,6 +168,12 @@ header {
   font-size: 2rem;
   font-weight: 300;
   vertical-align: text-top;
+}
+
+.degree-small {
+  font-size: 1.3rem;
+  vertical-align: top;
+  font-weight: 300;
 }
 
 .datetime {
