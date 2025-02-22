@@ -2,6 +2,7 @@ import cloudy from "./images/cloudy.svg";
 import partlyCloudDay from "./images/partly-cloudy-day.svg";
 import partlyCloudNight from "./images/partly-cloudy-night.svg";
 import clearNight from "./images/clear-night.svg";
+import { iconsSvg } from "./utils";
 
 const icons = {
   cloudy: cloudy,
@@ -49,13 +50,11 @@ export const displayMainWeather = (weatherObject) => {
   };
   const displayConditions = () => {
     const icon = currentHourWeather.icon;
-    const conditions = currentHourWeather.conditions;
-    const conditionsElem = document.querySelector(".conditions");
-    const iconImg = document.createElement("img");
-    iconImg.classList = "icon";
-    iconImg.src = icons[icon];
-    conditionsElem.textContent = conditions;
-    conditionsElem.prepend(iconImg);
+    const condition = currentHourWeather.conditions;
+    const iconConditionsElem = document.querySelector(".icon-conditions");
+    iconConditionsElem.innerHTML = iconsSvg[icon];
+    const conditionElem = document.querySelector(".condition");
+    conditionElem.textContent = condition;
   };
   const displayDetails = () => {
     const humidity = currentHourWeather.humidity;
