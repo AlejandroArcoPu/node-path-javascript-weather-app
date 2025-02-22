@@ -10,9 +10,9 @@ const icons = {
   "clear-night": clearNight,
 };
 
-const getTodayHour = (timezone) => {
+export const getTodayHour = (timezone) => {
   let dt = new Date();
-  let todayHour = dt.toLocaleTimeString("sv-SE", {
+  let todayHour = dt.toLocaleTimeString("en-GB", {
     hour: "2-digit",
     timeZone: timezone,
   });

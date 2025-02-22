@@ -2,9 +2,8 @@ import DayWeather from "./DayWeather";
 import HourWeather from "./HourWeather";
 
 const fetchTimeZone = async (place) => {
-  // console.log(place);
   const responseWeather = await fetch(
-    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${place}/2020-10-01?key=${process.env.VISUAL_CROSSING_API_KEY}&unitGroup=uk&timezone`
+    `https://pericolospalotes12345.com/VisualCrossingWebServices/rest/services/timeline/${place}/2020-10-01?key=${process.env.VISUAL_CROSSING_API_KEY}&unitGroup=uk&timezone`
   );
   if (!responseWeather.ok) {
     throw new Error("HTTP visual crossing error!");
@@ -27,10 +26,9 @@ const getDateTimeZone = (timezone, offset = 0) => {
 
 const fetchWeather = async (place) => {
   try {
-    // const placeTimezone = await fetchTimeZone(place);
-    const placeTimezone = "Europe/London";
+    const placeTimezone = await fetchTimeZone(place);
     const response = await fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${place}/${getDateTimeZone(
+      `https://pericolospalotes12345.com/VisualCrossingWebServices/rest/services/timeline/${place}/${getDateTimeZone(
         placeTimezone
       )}/${getDateTimeZone(placeTimezone, 4)}/?key=${
         process.env.VISUAL_CROSSING_API_KEY
