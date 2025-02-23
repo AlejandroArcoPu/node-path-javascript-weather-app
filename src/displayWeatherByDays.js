@@ -20,20 +20,6 @@ const getWeekDayShort = (datetime) => {
 
 export const displayWeatherByDays = (weatherObject) => {
   const dayWeathers = document.querySelectorAll(".day");
-  weatherObject = [
-    new DayWeather(
-      "2025-02-16",
-      "cloudy",
-      39,
-      36,
-      0,
-      "Overcast",
-      "Cloudy skies throughout the day.",
-      [],
-      0.63,
-      "Europe/London"
-    ),
-  ];
   weatherObject.forEach((weather, idx) => {
     const {
       tempMax,

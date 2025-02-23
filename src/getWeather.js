@@ -2,14 +2,18 @@ import DayWeather from "./DayWeather";
 import HourWeather from "./HourWeather";
 
 const fetchTimeZone = async (place) => {
-  const responseWeather = await fetch(
-    `https://pericolospalotes12345.com/VisualCrossingWebServices/rest/services/timeline/${place}/2020-10-01?key=${process.env.VISUAL_CROSSING_API_KEY}&unitGroup=uk&timezone`
-  );
-  if (!responseWeather.ok) {
-    throw new Error("HTTP visual crossing error!");
+  try {
+    const responseWeather = await fetch(
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${place}/2020-10-01?key=${process.env.VISUAL_CROSSING_API_KEY}&unitGroup=uk&timezone`
+    );
+    if (!responseWeather.ok) {
+      throw new Error("HTTP visual crossing error!");
+    }
+    const { timezone } = await responseWeather?.json();
+    return timezone;
+  } catch (error) {
+    console.log(`Error: ${error}`);
   }
-  const { timezone } = await responseWeather.json();
-  return timezone;
 };
 
 const getDateTimeZone = (timezone, offset = 0) => {
@@ -28,7 +32,7 @@ const fetchWeather = async (place) => {
   try {
     const placeTimezone = await fetchTimeZone(place);
     const response = await fetch(
-      `https://pericolospalotes12345.com/VisualCrossingWebServices/rest/services/timeline/${place}/${getDateTimeZone(
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${place}/${getDateTimeZone(
         placeTimezone
       )}/${getDateTimeZone(placeTimezone, 4)}/?key=${
         process.env.VISUAL_CROSSING_API_KEY
@@ -40,13 +44,13 @@ const fetchWeather = async (place) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(`Error: ${error}`);
   }
 };
 
 export const getWeatherObject = async (place) => {
   const weather = await fetchWeather(place);
-  const daysWeather = weather.days.map((day) => {
+  const daysWeather = weather?.days?.map((day) => {
     const dayObject = new DayWeather(
       day.datetime,
       day.icon,
