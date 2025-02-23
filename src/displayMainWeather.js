@@ -1,15 +1,4 @@
-import cloudy from "./images/cloudy.svg";
-import partlyCloudDay from "./images/partly-cloudy-day.svg";
-import partlyCloudNight from "./images/partly-cloudy-night.svg";
-import clearNight from "./images/clear-night.svg";
 import { iconsSvg } from "./utils";
-
-const icons = {
-  cloudy: cloudy,
-  "partly-cloudy-day": partlyCloudDay,
-  "partly-cloudy-night": partlyCloudNight,
-  "clear-night": clearNight,
-};
 
 export const getTodayHour = (timezone) => {
   let dt = new Date();

@@ -122,7 +122,9 @@ main {
   justify-content: center;
   flex-direction: column;
   gap: 20px;
-  padding: 20px 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
 }
 
 .mode-button,
@@ -235,6 +237,16 @@ body.dark .subtitle > span {
   border-color: #646464;
 }
 
+.search-input.error {
+  box-shadow: 0px 0px 0px 2px #ff9292;
+  border-color: #d00000;
+}
+
+.search-input.error:focus {
+  box-shadow: 0px 0px 0px 2px #ff9292;
+  border-color: #d00000;
+}
+
 .search-input:focus {
   box-shadow: 0px 0px 0px 2px #c5c5c5;
   border-color: #646464;
@@ -247,7 +259,7 @@ body.dark .search-input {
 
 body.dark .search-input:focus {
   box-shadow: 0px 0px 0px 2px white;
-  border-color: #646464;
+  border-color: #8d8d8d;
   outline: none;
 }
 
@@ -339,6 +351,7 @@ body.dark .main-weather {
 
 .icon {
   width: 70px;
+  height: 70px;
 }
 
 .icon-div {
@@ -445,6 +458,9 @@ body.dark .weather-byhours {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* display: grid; */
+  /* grid-template-columns: */
+  /* grid-template-rows: 500px 500px 500px 500px; */
   padding: 10px 20px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 30px 0px;
   border-radius: var(--main-radius);
@@ -462,21 +478,28 @@ body.dark .weather-bydays {
 
 .hours-weather {
   display: flex;
+  height: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
 .icon-hour {
-  width: 45px;
+  width: 50px;
+  height: 50px;
 }
 
 .droplet {
   width: 10px;
+  height: 24px;
 }
 
 .hour {
   font-weight: 600;
+}
+
+.day-condition {
+  width: 200px;
 }
 
 .hour-precip,
@@ -505,16 +528,19 @@ body.dark .weather-bydays {
 .day-weather {
   display: flex;
   gap: 5px;
+  width: 115px;
 }
 
 .day-weather-svg {
-  width: 60px;
+  width: 50px;
+  height: 50px;
 }
 
 .day-daytime {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 40px;
 }
 
 .condition {
@@ -523,7 +549,6 @@ body.dark .weather-bydays {
 }
 .description {
   font-size: 0.8rem;
-  padding-left: 20px;
   /* font-weight: 300; */
   color: #c1c1c1;
 }
@@ -570,6 +595,44 @@ footer {
 
 .author:hover {
   text-decoration: underline;
+}
+
+.error-message {
+  font-weight: bold;
+  color: red;
+}
+
+.error-card {
+  position: fixed;
+  top: 50px;
+  left: -300px;
+  display: flex;
+  border: 3px solid red;
+  border-radius: 10px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  transform: rotate(-10deg);
+  background: #ff9292;
+  color: black;
+  transition: left 0.8s;
+}
+
+.error-card-show {
+  left: 30px;
+}
+
+.error-card-icon {
+  width: 30px;
+  color: red;
+  border-radius: 10px;
+  padding: 5px;
+  border: none;
+  background-color: white;
+}
+
+.title-error {
+  font-weight: bold;
 }
 
 @keyframes blinking {
