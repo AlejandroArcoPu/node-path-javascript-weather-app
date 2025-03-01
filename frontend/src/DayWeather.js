@@ -9,7 +9,8 @@ export default class DayWeather {
     description,
     hours = [],
     moonphase,
-    timezone
+    timezone,
+    address
   ) {
     this.datetime = datetime;
     this.icon = icon;
@@ -21,5 +22,6 @@ export default class DayWeather {
     this.hours = hours;
     this.moonphase = moonphase;
     this.timezone = timezone;
+    this.address = address;
   }
 }

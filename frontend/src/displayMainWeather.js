@@ -1,4 +1,4 @@
-import { iconsSvg } from "./utils";
+import { iconsHourSvg } from "./utils";
 
 export const getTodayHour = (timezone) => {
   let dt = new Date();
@@ -28,7 +28,10 @@ export const displayMainWeather = (weatherObject) => {
   const currentHourWeather = todayHours.find(
     (hour) => `${timeZoneHour}:00` === hour.datetime
   );
-
+  const displaySearchedPlace = () => {
+    const searchedPlace = document.querySelector(".searched-place");
+    searchedPlace.textContent = weatherObject[0].address.split(",")[0];
+  };
   const displayTemp = () => {
     const tempElem = document.querySelector(".temp");
     const degreeElem = document.createElement("span");
@@ -41,7 +44,11 @@ export const displayMainWeather = (weatherObject) => {
     const icon = currentHourWeather.icon;
     const condition = currentHourWeather.conditions;
     const iconConditionsElem = document.querySelector(".icon-conditions");
-    iconConditionsElem.innerHTML = iconsSvg[icon];
+    iconConditionsElem.innerHTML = iconsHourSvg[icon];
+    const svgCondition = iconConditionsElem.querySelector("svg");
+    svgCondition.classList.remove("icon-hour");
+    svgCondition.classList.add("icon");
+
     const conditionElem = document.querySelector(".condition");
     conditionElem.textContent = condition;
   };
@@ -79,4 +86,5 @@ export const displayMainWeather = (weatherObject) => {
   displayTemp();
   displayConditions();
   displayDetails();
+  displaySearchedPlace();
 };

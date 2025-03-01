@@ -1,5 +1,5 @@
 import { getTodayHour } from "./displayMainWeather";
-import { iconsSvg } from "./utils";
+import { iconsHourSvg } from "./utils";
 
 export const displayWeatherByHours = (weatherObject = []) => {
   const today = weatherObject[0]?.hours || [];
@@ -14,7 +14,7 @@ export const displayWeatherByHours = (weatherObject = []) => {
   );
   const hoursToShow = combinedHours.slice(
     indexOfCurrentHour + 1,
-    indexOfCurrentHour + 8 // 7 hours that we show, 1 more because of slice
+    indexOfCurrentHour + 13 // 7 hours that we show, 1 more because of slice
   );
 
   const displayHours = (hours) => {
@@ -31,7 +31,7 @@ export const displayWeatherByHours = (weatherObject = []) => {
       hourPrecipElem.textContent = `${Math.round(precipProb)}%`;
 
       const iconHourElem = hourWeatherElem.querySelector(".icon-div");
-      iconHourElem.innerHTML = iconsSvg[icon];
+      iconHourElem.innerHTML = iconsHourSvg[icon];
     });
   };
 
