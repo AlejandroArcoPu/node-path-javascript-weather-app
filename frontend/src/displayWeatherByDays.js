@@ -1,4 +1,4 @@
-import { iconsSvg } from "./utils";
+import { iconsDaySvg } from "./utils";
 import DayWeather from "./DayWeather";
 
 const getDateShort = (datetime) => {
@@ -45,7 +45,7 @@ export const displayWeatherByDays = (weatherObject) => {
     dayDescription.textContent = description;
 
     const dayIcon = mainDayElem.querySelector(".icon-div");
-    dayIcon.innerHTML = iconsSvg[icon];
+    dayIcon.innerHTML = iconsDaySvg[icon];
 
     const dayTempMax = mainDayElem.querySelector(".day-temp-max");
     dayTempMax.textContent = `${Math.round(tempMax)}º`;
