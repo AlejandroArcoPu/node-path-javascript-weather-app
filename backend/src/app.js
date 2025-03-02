@@ -1,5 +1,5 @@
-import { getDateTimeZone } from "./utils/dateTime";
-import { fetchTimeZone } from "./utils/fetchTimezone";
+import { getDateTimeZone } from "./utils/dateTime.js";
+import { fetchTimeZone } from "./utils/fetchTimezone.js";
 
 async function routes(fastify, options) {
   fastify.get("/health", function (request, reply) {
