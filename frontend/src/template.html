@@ -3,17 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Get accurate, real-time weather forecasts for your location. Check temperature, humidity, wind speed, and upcoming weather conditions with our easy-to-use weather app."
+    />
     <title>EasyWeather.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
       href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
-      rel="stylesheet"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+        rel="stylesheet"
+        type="text/css"
+      />
+    </noscript>
   </head>
   <body>
     <div class="container-background">
-      <!-- <div class="background-lines"> -->
       <div class="background-color-light"></div>
       <div class="background-color-dark"></div>
 
@@ -25,7 +37,6 @@
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"
       >
-        <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
         <path
           fill="currentColor"
           d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"
@@ -39,6 +50,7 @@
     <header>
       <a
         class="github-button"
+        aria-label="Check the code on my GitHub repository"
         target="_blank"
         rel="noreferrer noopener"
         href="https://github.com/AlejandroArcoPu/node-path-javascript-weather-app"
@@ -114,6 +126,7 @@
               type="text"
               placeholder=""
               autocomplete="off"
+              aria-label="Search"
               maxlength="30"
               pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+"
               required
