@@ -13,5 +13,8 @@
   "dependencies": {
     "@fastify/cors": "^11.0.0",
     "fastify": "^5.2.1"
+  },
+  "devDependencies": {
+    "mini-css-extract-plugin": "^2.9.2"
   }
 }
