@@ -1,9 +1,15 @@
 // Require the framework
 import Fastify from "fastify";
+import cors from "@fastify/cors";
 
 // Instantiate Fastify with some config
 const app = Fastify({
   logger: true,
+});
+
+app.register(cors, {
+  origin: "*",
+  methods: ["GET"],
 });
 
 // Register your application as a normal plugin.
