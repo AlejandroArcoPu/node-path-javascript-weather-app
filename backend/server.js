@@ -5,6 +5,7 @@ const app = Fastify({
   logger: true,
 });
 
+//try cors
 app.register(cors, {
   origin: "*",
   methods: ["GET"],
