@@ -130,6 +130,7 @@ main {
 
 .mode-button,
 .github-button {
+  padding: 0px;
   width: 35px;
   height: 35px;
   border: none;
@@ -626,7 +627,7 @@ footer {
 
 .error-card {
   position: fixed;
-  top: 50px;
+  top: 20px;
   left: -300px;
   display: flex;
   border: var(--border-width) solid red;
@@ -763,5 +764,16 @@ footer {
 
   footer {
     padding: var(--big-padding);
+  }
+
+  .error-card-icon {
+    width: 30px;
+  }
+  .error-card-show {
+    left: 30px;
+  }
+
+  .error-card {
+    top: 50px;
   }
 }

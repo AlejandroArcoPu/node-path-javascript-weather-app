@@ -1,5 +1,4 @@
 import { iconsDaySvg } from "./utils";
-import DayWeather from "./DayWeather";
 
 const getDateShort = (datetime) => {
   const dt = new Date(datetime);

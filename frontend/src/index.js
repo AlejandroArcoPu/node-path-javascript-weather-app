@@ -11,7 +11,7 @@ const errorCard = document.querySelector(".error-card");
 const errorMessage = document.querySelector(".error-message");
 const form = document.querySelector("form");
 
-const controlWeatherError = (weatherObject, place) => {
+const controlWeatherError = (weatherObject) => {
   if (weatherObject) {
     displayWeatherByHours(weatherObject);
     displayWeatherByDays(weatherObject.slice(1, weatherObject.length));

@@ -3,7 +3,9 @@ import HourWeather from "./HourWeather";
 
 const fetchWeather = async (place) => {
   try {
-    const response = await fetch(`http://127.0.0.1:3000/api/weather/${place}`);
+    const response = await fetch(
+      `https://weather-app-backend-ecru.vercel.app/api/weather/${place}`
+    );
     if (!response.ok) {
       throw new Error("HTTP visual crossing error!");
     }
